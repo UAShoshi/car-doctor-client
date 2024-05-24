@@ -28,7 +28,7 @@ const CartDetails = () => {
 
 
   const handleDelete = id =>{
-    console.log(id);
+    // console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -40,12 +40,12 @@ const CartDetails = () => {
     }).then((result) => {
       if (result.isConfirmed) {
   
-        fetch(`http://localhost:5000/checkouts/${id}`, {
+        fetch(`https://car-doctor-server-beta-silk.vercel.app/checkouts/${id}`, {
           method: 'DELETE'
         })
         .then(res => res.json())
         .then(data =>{
-          console.log(data);
+          // console.log(data);
           if (data.deletedCount > 0) {
             Swal.fire({
           title: "Deleted!",
@@ -64,7 +64,7 @@ const CartDetails = () => {
 
   // send data to the server
   const handleCheckoutConfirm = id =>{
-    fetch(`http://localhost:5000/checkouts/${id}`, {
+    fetch(`https://car-doctor-server-beta-silk.vercel.app/checkouts/${id}`, {
     method: 'PATCH',
     headers: {
       'content-type': 'application/json'
@@ -73,7 +73,7 @@ const CartDetails = () => {
   })
   .then(res => res.json())
   .then(data => {
-    console.log(data);
+    // console.log(data);
     if (data.modifiedCount > 0) {
       Swal.fire({
         title: 'Good Luck !!!',

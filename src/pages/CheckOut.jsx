@@ -29,10 +29,10 @@ const CheckOut = () => {
       service_id: _id,
       price: price
     }
-    console.log(order);
+    // console.log(order);
 
     // send data to the server
-    fetch('http://localhost:5000/checkouts', {
+    fetch('https://car-doctor-server-beta-silk.vercel.app/checkouts', {
       method: 'POST',
       headers: {
         'content-type' : 'application/json'
@@ -41,7 +41,7 @@ const CheckOut = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      // console.log(data);
       if (data.insertedId) {
         Swal.fire({
           title: 'Good Luck !!!',
